@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  solr:
+    environment:
+      - SOLR_PORT # Set via environment variable or use default defined in .env file
+      - SOLR_VERSION # Set via environment variable or use default defined in .env file
+    build:
+      context: .
+      dockerfile: .docker/solr/Dockerfile.solr
+    ports:
+      - "${SOLR_PORT}:8983"
+    command:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - blacklight-core
+      - /opt/solr/conf
+      - "-Xms256m"
+      - "-Xmx512m"
