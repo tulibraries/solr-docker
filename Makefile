@@ -3,7 +3,7 @@ include .env
 export #exports the .env variables
 
 #Set DOCKER_IMAGE_VERSION in the .env file OR by passing in
-VERSION ?= $(SOLR_IMAGE_VERSION)
+VERSION ?= $(DOCKER_IMAGE_VERSION)
 IMAGE ?= tulibraries/tul-solr
 HARBOR ?= harbor.k8s.temple.edu
 CLEAR_CACHES ?= no
