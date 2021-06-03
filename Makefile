@@ -36,12 +36,6 @@ shell:
 		--entrypoint=sh --user=root \
 		$(HARBOR)/$(IMAGE):$(VERSION)
 
-load-data:
-	@docker run --name=solr-sync\
-		--entrypoint=/bin/sh\
-		$(DEFAULT_RUN_ARGS) \
-		$(HARBOR)/$(IMAGE):$(VERSION) -c 'rails sync:pressworks:all[press.xml]'
-
 scan:
 	@if [ $(CLEAR_CACHES) == yes ]; \
 		then \
